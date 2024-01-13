@@ -1,0 +1,22 @@
+
+
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+#svg{
+    height: 100vh;
+    width: 100%;
+}
+
+
+.ball {
+    fill: rgb(118, 206, 235);
+}
+
+.bubble1, .bubble2, .bubble3, .bubble4{
+   visibility: hidden;
+}
