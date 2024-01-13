@@ -11,31 +11,28 @@ const AnimatedSVG = () => {
   useEffect(() => {
     gsap.defaults({ ease: "none" });
 
-    const poppins = gsap
-      .timeline({
-        defaults: {
-          autoAlpha: 1,
-          transformOrigin: "center",
-          ease: "elastic(2.5, 1)"
-        },
-      })
+    const poppins = gsap.timeline({
+      defaults: {
+        autoAlpha: 1,
+        transformOrigin: "center",
+        ease: "elastic(2.5, 1)",
+      },
+    })
       .to(".bubble1", {}, 7.3)
       .to(".bubble2", {}, 13.5)
       .to(".bubble3", {}, 18.5)
       .to(".bubble4", {}, 25);
-    
-    const main = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#svg",
-          scrub: 0.6,
-          pin:true,
-          start: "0% 0%",
-          end: "100% 100%",
-        },
-        duration: 60,
-      })
-      //   .to(".ball", {autoAlpha:1, duration:0.05})
+
+    const main = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#svg",
+        scrub: 1, // Set scrub to 1 for manual control
+        pin: true,
+        start: "0% 0%",
+        end: "100% 100%",
+      },
+      duration: 60,
+    })
       .from(".line", { duration: 10 }, 0)
       .to(
         ".ball",
@@ -49,13 +46,22 @@ const AnimatedSVG = () => {
         },
         0
       )
-      .to("#svg",{attr:{viewBox:"1300 0 1900 709"}, duration:20},5)
-      .add(poppins, 0);
+      .to("#svg", { attr: { viewBox: "1300 0 1900 709" }, duration: 20 }, 5)
+      .add(poppins, 0)
+      .progress(0); // Start the animation at the beginning
+
+    // Manually control the animation progress based on scroll position
+    ScrollTrigger.create({
+      trigger: "#svg",
+      onUpdate: (self) => {
+        main.progress(self.progress);
+      },
+    });
 
   }, []);
 
   return (
-    <div className='svg-wrapper w-full h-full hidden lg:block'>
+    <div className='svg-wrapper w-[1519] h-[940px] hidden lg:block'>
     <svg preserveAspectRatio="xMidYMid meet"  id="svg" width="2715" height="609" viewBox="-100 70 1900 709" fill="none">
     <path
       class="line"

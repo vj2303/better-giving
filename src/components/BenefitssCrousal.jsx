@@ -43,8 +43,8 @@ const BenefitssCrousal = ({ path, slides }) => {
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 650,
-          modifier: 2.5,
+          depth: 750,
+          modifier: 2.8,
         }}
         // pagination={{ el: '.swiper-pagination', clickable: true }}
         navigation={{
