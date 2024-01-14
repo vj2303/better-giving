@@ -15,7 +15,7 @@ const AnimatedSVG = () => {
       defaults: {
         autoAlpha: 1,
         transformOrigin: "center",
-        ease: "elastic(2.5, 1)",
+        ease: "power4.out", 
       },
     })
       .to(".bubble1", {}, 7.3)

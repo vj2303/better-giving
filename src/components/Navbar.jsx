@@ -5,7 +5,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("")
   const navigate = useNavigate()
   return (
-    <nav className='bg-white h-[76px] rounded-[40px] border border-solid border-black flex items-center justify-between px-4 max-w-[80%] m-auto'>
+    <nav className='bg-white h-[76px] rounded-[40px] flex items-center justify-between px-4 max-w-[80%] m-auto'>
       <label htmlFor="search" className='flex items-center gap-2'>
         {search===""?
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

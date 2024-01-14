@@ -92,8 +92,8 @@
     /* z-index: -9; */
 
     /* background: #F6FBFA; */
-    background: rgb(255, 255, 255);
-    filter: blur(50px);
+    /* background: rgb(255, 255, 255);
+    filter: blur(50px); */
 }
 
 .rotating-text{
