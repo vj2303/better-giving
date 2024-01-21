@@ -15,6 +15,11 @@ import EditTestimonial from './pages/EditTestimonial';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserState from './state/UserState';
+import WritePage from './pages/WriteBlog';
+import Blog from './pages/Blog';
+import Edit from './pages/Edit';
+import { PrimeReactProvider } from 'primereact/api';
+
 
 function App() {
   return (
@@ -26,10 +31,12 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/dashboard/create-testimonial' element={<CreateTestimonial/>} />
         <Route path='/dashboard/create-blog' element={<CreateBlog/>} />
-        <Route path='/dashboard/edit-blog/:id' element={<EditBlog/>} />
+        <Route path='/dashboard/edit-blog/:id' element={<Edit/>} />
         <Route path='/dashboard/edit-testimonial/:id' element={<EditTestimonial/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/writeBlog' element={<WritePage/>} />
+        <Route path='/Blog/:id' element={<Blog/>} />
         
       </Routes>
     </Router>

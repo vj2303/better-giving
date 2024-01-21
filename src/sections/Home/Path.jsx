@@ -37,11 +37,11 @@ const Path = () => {
   ])
 
   return (
-    <section className='px-[24px] lg:p-[128px] md:p-[30px] pt-0 flex flex-col gap-[42px] mt-[-200px]'>
-      <div className='flex flex-col gap-[42px]'>
+    <section className='px-[24px] lg:p-[128px] md:p-[30px] pt-0 flex flex-col gap-[42px] mt-[-200px] xl:max-w-[1440px] xl:m-auto'>
+      <div className='flex flex-col gap-[42px] mt-[-350px]'>
         <span className='flex flex-col items-center gap-2 '>
           <h3 className='text-[13px] md:text-[18px] uppercase font-bold text-[#2D89C8] Quicksand'>Bridge to better</h3>
-          <h2 className='text-[32px] md:text-[42px] uppercase font-bold text-[#183244] lg:max-w-[50%] md:max-w-full text-balance mx-auto text-center Quicksand'>With Better Giving-Empower, Engage and Elevate</h2>
+          <h2 className='text-[32px] md:text-[42px] uppercase font-bold text-[#183244] lg:max-w-[63%] md:max-w-full text-balance mx-auto text-center Quicksand'>With Better Giving-Empower, Engage and Elevate</h2>
         </span>
         <span className='flex p-1 px-2 bg-[#F6EFE5] rounded-3xl gap-2 self-center'>
           <button className={`${path === "non-profits" ? "bg-white" : "bg-transparent"} p-2 px-4 rounded-3xl DM_Sans`} onClick={() => setPath("non-profits")}>For Nonprofits</button>

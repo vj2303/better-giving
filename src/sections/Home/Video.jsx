@@ -3,15 +3,15 @@ import Button from '../../components/Button'
 
 
 const Video = () => {
-    useEffect(() => {
-        const text = document.querySelector(".rotating-text p")
-        text.innerHTML = text.innerText.split("").map((char, i) => {
-            return `<span style="transform:rotate(${i * 5.4}deg)">${char}</span>`
-        }).join("")
-    }, [])
+    // useEffect(() => {
+    //     const text = document.querySelector(".rotating-text p")
+    //     text.innerHTML = text.innerText.split("").map((char, i) => {
+    //         return `<span style="transform:rotate(${i * 5.4}deg)">${char}</span>`
+    //     }).join("")
+    // }, [])
 
     return (
-        <section className='p-[24px] lg:p-[100px] md:px-[30px] md:py-[100px] flex flex-col gap-[56px] relative'>
+        <section className='p-[24px] lg:p-[100px] md:px-[30px] md:py-[100px] flex flex-col gap-[56px] relative xl:max-w-[1440px] xl:m-auto'>
             <div className='h-[250px]'></div>
             <span className='flex flex-col items-center gap-3 relative'>
                 {/* <img src="" alt="" /> */}
@@ -26,10 +26,10 @@ const Video = () => {
                             </radialGradient>
                         </defs>
                     </svg>
-                    <svg width="350" height="289" viewBox="0 0 348 289" fill="none" className='w-[180px] h-[150px] md:w-[370px] md:h-[309px]' xmlns="http://www.w3.org/2000/svg">
-                        <path d="M280.925 221.178C238.358 263.745 169.343 263.745 126.776 221.178L49.7013 144.103L126.776 67.0285C169.343 24.4614 238.358 24.4614 280.925 67.0285V67.0285C323.492 109.596 323.492 178.611 280.925 221.178V221.178Z" stroke="url(#paint0_angular_519_579)" stroke-width="70" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="289" viewBox="0 0 348 289" fill="none">
+                        <path d="M280.925 221.178C238.358 263.745 169.343 263.745 126.776 221.178L49.7013 144.103L126.776 67.0285C169.343 24.4614 238.358 24.4614 280.925 67.0285V67.0285C323.492 109.596 323.492 178.611 280.925 221.178V221.178Z" stroke="url(#paint0_angular_1039_7844)" stroke-width="70" />
                         <defs>
-                            <radialGradient id="paint0_angular_519_579" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(203.851 144.103) rotate(180) scale(193.351)">
+                            <radialGradient id="paint0_angular_1039_7844" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(203.851 144.103) rotate(180) scale(193.351)">
                                 <stop stop-color="#2D89C8" />
                                 <stop offset="1" stop-color="#2D89C8" stop-opacity="0" />
                             </radialGradient>
@@ -53,14 +53,15 @@ const Video = () => {
                     </button>
                     <span className='absolute lg:left-[-10px] md:left-[50px] lg:bottom-[-10px] md:bottom-[-90%] text-[42px] w-[200px] h-[200px] circle hidden md:block'>
 
-                        <span className='uppercase text-lg font-bold rotating-text absolute top-[40%] left-[-45%]'>
+                        {/* <span className='uppercase text-lg font-bold rotating-text absolute top-[40%] left-[-45%]'>
                             <strong className='absolute top-[40%] left-[25%] text-[72px]'>
                                 💙
                             </strong>
                             <p className='Quicksand text-[#2D89C8]'>
                                 Give Today, Give Forever BetterGiving
                             </p>
-                        </span>
+                        </span> */}
+                        <img src="/heart.png" alt="heart" className='uppercase text-lg font-bold rotating-text absolute top-[40%] left-[-45%]' />
                     </span>
                 </div>
                 <p className='text-[16px] md:text-[24px] text-center w-[80%] DM_Sans'>Through strategic connections and shared purpose, the platform magnifies impact, enabling sponsors to support local nonprofit experts, multiply their influence, and drive collective support for causes that truly matter.</p>

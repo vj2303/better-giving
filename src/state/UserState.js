@@ -7,7 +7,7 @@ export const UserContext = createContext(null)
 
 
 const UserState = (props) => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
     useEffect(()=>{
         // console.log({user});
         // if (user.user) {
@@ -15,17 +15,23 @@ const UserState = (props) => {
           if(!localStorage.getItem("token")){
             // navigate("/")
           }else {
-            const getUser = async() => {
-              const res = await axios({
-                  method : "get",
-                  url : "http://localhost:5000/api/user/getUser",
-                  headers : {
-                      authToken : localStorage.getItem("token")
-                  }
-              })
-              setUser(res.data.User)
-          }
-          getUser()
+            try {
+              const getUser = async() => {
+                const res = await axios({
+                    method : "get",
+                    url : "http://localhost:5000/api/user/getUser",
+                    headers : {
+                        authToken : localStorage.getItem("token")
+                    }
+                })
+                setUser(res.data.User)
+                console.log(res.data);
+            }
+            getUser()
+            } catch (error) {
+              alert(error.message)
+            }
+            
           
           }
       }, [])

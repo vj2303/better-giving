@@ -6,23 +6,31 @@ import { useNavigate } from "react-router-dom"
 export default function Signup() {
     const [user, setUser] = useState({
         email : "",
-        password : ""
+        password : "",
+        userName : "",
+        avatar : "",
     })
     const navigate = useNavigate()
 
     const handleSignup = async(e) => {
         e.preventDefault()
+        console.log({avatar : user.avatar});
+        const formData = new FormData(e.target)
+        try {
+          
         const res = await axios({
             method : "post",
             url : "http://localhost:5000/api/user",
-            data : user
+            data : formData
         })
         if (res.data.success === true) {
             localStorage.setItem("token", res.data.authToken)
             alert("User Created")
             setUser({
                 email : "",
-                password : ""
+                password : "",
+                userName : "",
+                avatar : "",
             })
             navigate("/")
         }else{
@@ -30,6 +38,9 @@ export default function Signup() {
         }
         console.log(res)
 
+      } catch (error) {
+          console.log(error);
+      }
     }
     return (
       <>
@@ -47,6 +58,22 @@ export default function Signup() {
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" onSubmit={handleSignup}>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  User Name
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="userName"
+                    name="userName"
+                    type="text"
+                    autoComplete="userName"
+                    required
+                    onChange={(e)=>setUser({...user, userName : e.target.value})}
+                    className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
@@ -84,6 +111,23 @@ export default function Signup() {
                     required
                     onChange={(e)=>setUser({...user, password : e.target.value})}
                     className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  Avatar
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="avatar"
+                    name="avatar"
+                    type="file"
+                    autoComplete="avatar"
+                    required
+                    onChange={(e)=>setUser({...user, avatar : e.target.files[0]})}
+                    className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
                   />
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-export default function useGetBlogs (initial) {
+export default function useGetBlogs (initial, num) {
     const [blogs, setBlogs] = useState(initial)
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function useGetBlogs (initial) {
         }
 
         fetchBlogs()
-    }, [])
+    }, [num])
 
     return [blogs, setBlogs]
 }
